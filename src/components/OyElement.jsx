@@ -27,8 +27,8 @@ export default React.createClass({
   },
 
   render: function() {
-    const element = OY_COMPONENTS.hasOwnProperty(this.props.type) ? OY_COMPONENTS[this.props.type] : this.props.type;
-    delete this.props.type;
-    return React.createElement(element, this.props, this.props.children);
+    const { type, ...other } = this.props;
+    const element = OY_COMPONENTS.hasOwnProperty(type) ? OY_COMPONENTS[type] : type;
+    return React.createElement(element, other, this.props.children);
   }
 });
